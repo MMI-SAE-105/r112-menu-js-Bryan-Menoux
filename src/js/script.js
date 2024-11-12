@@ -7,12 +7,8 @@ toggle.addEventListener("click", () => {
   // Mise à jour des attributs ARIA pour accessibilité
   const isOpen = toggle.ariaExpanded === "true";
   const isClosed = !isOpen;
+  console.log("isOpen : ", isOpen, "isClosed : ", isClosed);
   nav.ariaHidden = isOpen;
   toggle.ariaExpanded = isClosed;
-  if (nav.ariaHidden === "false") {
-    document.body.classList.toggle("noscroll");
-  }
-  if (nav.ariaHidden === "true") {
-    document.body.classList.toggle("noscroll");
-  }
+  document.body.classList.toggle("noscroll", isClosed);
 });
